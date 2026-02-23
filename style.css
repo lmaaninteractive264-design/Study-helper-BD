@@ -1,0 +1,325 @@
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #e5e7eb;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =====================
+   COMMON
+===================== */
+.hidden {
+  display: none !important;
+}
+
+.screen {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* =====================
+   SPLASH SCREEN
+===================== */
+#splashScreen {
+  background: linear-gradient(135deg, #020617, #0f172a);
+}
+
+#splashScreen .logo {
+  width: 140px;
+  border-radius: 16px;
+  margin-bottom: 15px;
+}
+
+#splashScreen h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+#splashScreen p {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* =====================
+   LOGIN SCREEN
+===================== */
+#loginScreen {
+  background: #020617;
+}
+
+#loginScreen h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#loginScreen p {
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+.btn {
+  width: 85%;
+  max-width: 320px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.btn.google {
+  background: #ffffff;
+  color: #000;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* =====================
+   APP LAYOUT
+===================== */
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #020617;
+}
+
+/* =====================
+   TOP BAR
+===================== */
+.top-bar {
+  height: 56px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.top-bar h2 {
+  font-size: 18px;
+}
+
+/* =====================
+   MENU
+===================== */
+.menu {
+  position: relative;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  width: 180px;
+  display: none;
+  z-index: 10;
+}
+
+.menu-dropdown a,
+.menu-dropdown button {
+  display: block;
+  padding: 12px;
+  color: #e5e7eb;
+  text-decoration: none;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+.menu-dropdown a:hover,
+.menu-dropdown button:hover {
+  background: #0f172a;
+}
+
+/* =====================
+   CHAT AREA
+===================== */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#chatBox {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.user-msg,
+.ai-msg {
+  max-width: 85%;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.user-msg {
+  background: #2563eb;
+  align-self: flex-end;
+}
+
+.ai-msg {
+  background: #1e293b;
+  align-self: flex-start;
+}
+
+/* =====================
+   INPUT AREA
+===================== */
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #1e293b;
+  background: #020617;
+}
+
+.image-btn {
+  font-size: 22px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+#userInput {
+  flex: 1;
+  background: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  border-radius: 8px;
+  padding: 10px;
+  resize: none;
+  outline: none;
+}
+
+#sendBtn {
+  margin-left: 8px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+}
+
+#sendBtn:hover {
+  opacity: 0.9;
+}
+
+/* =====================
+   LIMIT INFO
+===================== */
+.limit-info {
+  font-size: 12px;
+  text-align: center;
+  padding: 5px;
+  opacity: 0.7;
+}
+/* ===== STATIC PAGES ===== */
+.simple-header {
+  padding: 15px;
+  background: #0d47a1;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.simple-header a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.page-content {
+  padding: 20px;
+  line-height: 1.6;
+}
+/* ১. মূল কন্টেইনারকে ফ্লেক্সিবল করা */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* স্ক্রিন যাতে উল্টাপাল্টা না নড়ে */
+}
+
+/* ২. চ্যাট এরিয়া যাতে নিজে থেকে বড়-ছোট হয় */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px; /* পিসিতে খুব বেশি চওড়া হবে না */
+  margin: 0 auto;   /* মাঝখানে থাকবে */
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ৩. রেসপন্সিভ ব্রেকপয়েন্ট (Media Queries) */
+@media (max-width: 600px) {
+  .top-bar h2 {
+    font-size: 1.2rem; /* মোবাইলে লেখা ছোট হবে */
+  }
+  
+  .input-area {
+    padding: 10px;
+    gap: 5px;
+  }
+  
+  #userInput {
+    font-size: 16px; /* মোবাইলে জুম হওয়া রোধ করবে */
+  }
+
+  .ai-msg, .user-msg {
+    max-width: 90%; /* মোবাইলে মেসেজ একটু বেশি জায়গা নিবে */
+  }
+}
+#loginScreen {
+  text-align: center;
+}
+
+#loginScreen input {
+  width: 90%;
+  max-width: 320px;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+#loginScreen .btn {
+  width: 90%;
+  max-width: 320px;
+     }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <title>Study Helper BD</title>  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <!-- SEO -->    <meta name="description" content="Study Helper BD - Smart AI study assistant for Bangla & English students">  
+  <meta name="theme-color" content="#0f172a">    <!-- CSS -->    <link rel="stylesheet" href="style.css" />  
+</head>  
+<body>  <!-- 🔵 Splash Screen -->  <div id="splashScreen" class="screen">  
+  <img  
+    src="https://i.supaimg.com/6de25398-02db-416f-91cf-e7762dd6427e.jpg"  
+    alt="Study Helper BD Logo"  
+    class="logo"  
+  />  
+  <h2>Study Helper BD</h2>  
+  <p>Created by Imaan Interactive</p>  
+  <p>Powered by ark-anaya</p>
+</div> <!-- 🔐 Login Screen -->
+<div id="loginScreen" class="screen hidden">
+  <h2>Welcome 👋</h2>
+  <p>Login to continue</p>
+
+  <div class="login-form">
+    <input
+      type="email"
+      id="emailInput"
+      placeholder="Enter your email"
+      autocomplete="email"
+    />
+
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Enter your password"
+      autocomplete="current-password"
+    />
+
+    <button id="emailLogin" class="btn">
+      Login
+    </button>
+  </div>
+</div>
+  
+  <!-- 🌐 Main App -->  <div id="app" class="hidden">    <!-- 🔝 Top Bar -->    <header class="top-bar">  
+    <h2>Study Helper BD</h2>  <div class="menu">  
+  ⋮  
+  <div class="menu-dropdown">  
+    <a href="about.html">About Us</a>  
+    <a href="contact.html">Contact Us</a>  
+    <a href="privacy.html">Privacy Policy</a>  
+    <a href="terms.html">Terms & Conditions</a>  
+    <hr>  
+    <button id="logoutBtn">Logout</button>  
+  </div>  
+</div>
+
+  </header>    <!-- 💬 Chat Area -->    <main class="chat-container">  <div id="chatBox">  
+  <div class="ai-msg">  
+    👋 Hi! Ask me anything about your study.  
+  </div>  
+</div>  
+
+<!-- ✍️ Input Area -->  
+<div class="input-area">  
+  <label for="imageInput" class="image-btn">📷</label>  
+  <input type="file" id="imageInput" accept="image/*" hidden />  
+
+  <textarea  
+    id="userInput"  
+    placeholder="Ask your question in বাংলা or English..."  
+    rows="1"  
+  ></textarea>  
+
+  <button id="sendBtn">Send</button>  
+</div>  
+
+<!-- 📊 Daily Limit -->  
+<div class="limit-info">  
+  Daily limit: <span id="limitCount">0</span>/12  
+</div>
+
+  </main>  
+</div>  <!-- JS -->  <script type="module" src="app.js"></script>  </body>  
+</html> 
