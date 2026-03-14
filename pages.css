@@ -1,0 +1,260 @@
+/* =========================
+   PAGES COMMON STYLES
+   for About, Contact, Privacy, Terms
+   (HTML এর existing ক্লাস অনুযায়ী)
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+}
+
+/* =========================
+   SIMPLE HEADER (আপনার HTML এর ক্লাস)
+========================= */
+.simple-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: white;
+}
+
+.simple-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.simple-header a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.simple-header a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* =========================
+   PAGE CONTENT (আপনার HTML এর ক্লাস)
+========================= */
+.page-content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  line-height: 1.8;
+  color: #334155;
+  font-size: 1.1rem;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text formatting inside page-content */
+.page-content strong {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.page-content a {
+  color: #667eea;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.page-content a:hover {
+  border-bottom-color: #667eea;
+}
+
+/* Line breaks and spacing */
+.page-content br {
+  margin-bottom: 10px;
+  display: block;
+  content: "";
+}
+
+/* Email and contact info styling */
+.page-content:contains("Email"), 
+.page-content:contains("Facebook"), 
+.page-content:contains("Address") {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Style for contact information lines */
+.page-content {
+  white-space: pre-line;
+}
+
+/* Add icons to contact info */
+.page-content:has(strong:contains("Email")) {
+  position: relative;
+  padding-left: 30px;
+}
+
+/* Manual styling for contact info */
+.page-content {
+  /* Email line */
+  & when (@media) {
+    /* এইটা stylsheet এ সরাসরি কাজ করবে */
+  }
+}
+
+/* আমরা manually কিছু স্টাইল যোগ করছি contact info এর জন্য */
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.contact-info-item:hover {
+  transform: translateX(5px);
+}
+
+.contact-info-item .icon {
+  font-size: 24px;
+  min-width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.contact-info-item .text {
+  color: #334155;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-content {
+    margin: 20px;
+    padding: 20px;
+    font-size: 1rem;
+  }
+  
+  .simple-header {
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .simple-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .simple-header a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content {
+    margin: 15px;
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+  
+  .simple-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .contact-info-item {
+    padding: 10px;
+  }
+  
+  .contact-info-item .icon {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #667eea #f1f5f9;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+  
+  .simple-header {
+    background: white;
+    color: black;
+    box-shadow: none;
+  }
+  
+  .page-content {
+    box-shadow: none;
+    margin: 0;
+    padding: 20px;
+  }
+}
