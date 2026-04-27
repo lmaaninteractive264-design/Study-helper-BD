@@ -151,7 +151,7 @@ const chatBox = document.getElementById("chatBox");
 
 async function sendMessage() {
   if (usage[today] >= 12) {
-    addMessage("❌ আজকের ১২টি প্রশ্নের লিমিট শেষ।", "ai");
+    addMessage("❌ আজকের daily limit শেষ। কাল আবার চেষ্টা করো।", "ai");
     return;
   }
 
@@ -161,23 +161,29 @@ async function sendMessage() {
   addMessage(text, "user");
   userInput.value = "";
 
-  // Thinking...
+  // Thinking... মেসেজ দেখানো এবং তার আইডি রাখা
   const thinkingId = "thinking-" + Date.now();
   addMessage("জশেন ভাবছে... 🤔", "ai", thinkingId);
 
-  // উত্তর আনা
-  const answer = await askJosen(text);
+  try {
+    // এখানে await ব্যবহার করা খুবই জরুরি
+    const answer = await askJosen(text); 
 
-  // Thinking সরিয়ে উত্তর বসানো
-  const thinkingDiv = document.getElementById(thinkingId);
-  if (thinkingDiv) {
-    thinkingDiv.innerHTML = answer;
+    // Thinking লেখাটি সরিয়ে আসল উত্তর বসানো
+    const thinkingDiv = document.getElementById(thinkingId);
+    if (thinkingDiv) {
+      thinkingDiv.innerHTML = answer;
+    }
+
+    // লিমিট আপডেট
+    usage[today]++;
+    localStorage.setItem("usage", JSON.stringify(usage));
+    if (limitCount) limitCount.innerText = usage[today];
+
+  } catch (error) {
+    const thinkingDiv = document.getElementById(thinkingId);
+    if (thinkingDiv) thinkingDiv.innerText = "দুঃখিত, কিছু একটা ভুল হয়েছে।";
   }
-
-  // লিমিট আপডেট
-  usage[today]++;
-  localStorage.setItem("usage", JSON.stringify(usage));
-  if(limitCount) limitCount.innerText = usage[today];
 }
 
 function addMessage(text, type, id = null) {
