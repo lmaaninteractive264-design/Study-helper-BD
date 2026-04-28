@@ -226,3 +226,30 @@ userInput.addEventListener("keydown", (e) => {
     sendMessage();
   }
 });
+/* =========================
+   MENU DROPDOWN LOGIC (FIXED)
+========================= */
+const menuBtn = document.getElementById("menuBtn");
+const menuDropdown = document.getElementById("menuDropdown");
+
+// ৩ ডট মেনুতে ক্লিক করলে ড্রপডাউন খুলবে বা বন্ধ হবে
+if (menuBtn && menuDropdown) {
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); 
+    menuDropdown.classList.toggle("show");
+  });
+
+  // মেনুর বাইরে ক্লিক করলে ড্রপডাউন বন্ধ হয়ে যাবে
+  window.addEventListener("click", () => {
+    if (menuDropdown.classList.contains("show")) {
+      menuDropdown.classList.remove("show");
+    }
+  });
+}
+
+// লগআউট বাটনের লজিক
+document.getElementById("logoutBtn")?.addEventListener("click", () => {
+  localStorage.removeItem("loggedIn");
+  localStorage.removeItem("userEmail");
+  location.reload(); 
+});
