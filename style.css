@@ -1,4 +1,3 @@
-
 /* =========================
    GLOBAL STYLES
 ========================= */
@@ -868,3 +867,7 @@ body {
         flex-direction: column;
         gap: 20px;
    }
+       /* style.css এ নিচের অংশটুকু যোগ করুন */
+.menu-dropdown.show {
+  display: block !important; /* জাভাস্ক্রিপ্ট ক্লিক করলে এটি মেনু দেখাবে */
+}
